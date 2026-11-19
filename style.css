@@ -1,0 +1,87 @@
+:root {
+  color-scheme: light;
+  font-family: "Aptos", "Segoe UI", system-ui, sans-serif;
+  line-height: 1.5;
+  color: #20251b;
+  background: #f7f8ef;
+  --ink: #20251b;
+  --muted: #515b49;
+  --green: #395e24;
+  --accent: #cfec84;
+  --line: #dce0d2;
+  --paper: #fff;
+}
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; }
+button, input { font: inherit; }
+button { cursor: pointer; }
+button:disabled { cursor: default; }
+:focus-visible { outline: 3px solid #4e692f; outline-offset: 3px; }
+[hidden] { display: none !important; }
+h1, h2, p { margin: 0; }
+.shell { width: min(68rem, calc(100% - 3rem)); margin-inline: auto; }
+.site-header { border-bottom: 1px solid var(--line); }
+.header-inner { min-height: 4.625rem; display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; }
+.brand { display: flex; align-items: center; gap: 0.625rem; font-size: 1.25rem; font-weight: 800; letter-spacing: -0.06em; }
+.brand-mark, .empty-mark { display: grid; place-items: center; }
+.brand-mark { width: 2.15rem; height: 2.15rem; border-radius: 0.65rem; background: var(--accent); color: var(--ink); font-size: 1.05rem; }
+.storage-note { color: var(--muted); font-size: 0.875rem; text-align: end; }
+.storage-note[data-error="true"], .input-error { color: #932e27; }
+.workspace { padding-block: clamp(2.75rem, 8vw, 5.5rem); }
+.intro { margin-bottom: clamp(1.6rem, 4vw, 2.6rem); }
+h1 { font-size: clamp(3.4rem, 9vw, 6rem); line-height: 0.95; letter-spacing: -0.09em; }
+h1 span { color: var(--green); }
+.intro p { max-width: 36ch; margin-top: 1rem; color: var(--muted); font-size: 1.125rem; }
+.board { display: grid; grid-template-columns: minmax(0, 2.3fr) minmax(13rem, 1fr); gap: 1rem; align-items: start; }
+.task-panel, .progress-panel { border-radius: 1.25rem; padding: clamp(1rem, 3vw, 1.6rem); }
+.task-panel { background: var(--paper); border: 1px solid var(--line); box-shadow: 0 0.5rem 1.5rem #323b1909; }
+.task-panel h2, .progress-panel h2 { font-size: 1.125rem; letter-spacing: -0.035em; }
+#task-form { display: flex; gap: 0.6rem; margin-top: 0.9rem; }
+#task-text { min-width: 0; flex: 1; min-height: 3rem; padding: 0.65rem 0.9rem; border: 1px solid #a6b09b; border-radius: 0.65rem; color: var(--ink); background: #fcfcf8; }
+#task-text::placeholder { color: var(--muted); opacity: 1; }
+#task-text[aria-invalid="true"] { border-color: #932e27; }
+.add-button { display: inline-flex; gap: 0.35rem; justify-content: center; align-items: center; padding: 0.55rem 1rem; border: 1px solid transparent; border-radius: 0.65rem; color: #202619; background: var(--accent); font-weight: 750; white-space: nowrap; }
+.add-button:hover { background: #bddf69; }
+.add-button span { font-size: 1.25em; line-height: 1; }
+.input-error { margin-top: 0.5rem; font-size: 0.875rem; }
+.task-tools { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.4rem; padding-bottom: 0.8rem; border-bottom: 1px solid var(--line); }
+.filters { display: flex; gap: 0.15rem; padding: 0.2rem; background: #f0f3e9; border-radius: 0.7rem; }
+.filters button, .task-footer button, .delete-task { min-height: 2.75rem; border: 1px solid transparent; border-radius: 0.5rem; color: var(--muted); background: transparent; font-size: 0.875rem; font-weight: 650; }
+.filters button { padding-inline: 0.7rem; }
+.filters button[aria-pressed="true"] { background: var(--paper); color: var(--ink); border-color: var(--line); }
+.filters button:hover, .task-footer button:enabled:hover { background: #e9efdd; color: var(--ink); }
+.remaining { color: var(--muted); font-size: 0.875rem; white-space: nowrap; }
+.task-list { list-style: none; padding: 0; margin: 0; }
+.task-row { display: flex; gap: 0.5rem; align-items: center; justify-content: space-between; padding-block: 0.35rem; border-bottom: 1px solid var(--line); }
+.task-label { display: flex; align-items: center; flex: 1; min-width: 0; min-height: 2.75rem; gap: 0.7rem; cursor: pointer; }
+.task-label input { width: 1.2rem; height: 1.2rem; margin: 0; flex: none; accent-color: var(--green); }
+.task-label span { overflow-wrap: anywhere; }
+.task-row.is-done .task-label span { text-decoration: line-through; color: var(--muted); }
+.delete-task { padding-inline: 0.65rem; }
+.delete-task:hover { color: #932e27; background: #fbebe9; }
+.empty-state { min-height: 12rem; display: grid; justify-items: center; align-content: center; gap: 0.3rem; padding: 1.25rem 0.6rem; text-align: center; }
+.empty-mark { width: 2.65rem; height: 2.65rem; margin-bottom: 0.45rem; border: 1px solid #d4dec6; border-radius: 0.8rem; background: #edf3e4; color: var(--green); font-size: 1.1rem; font-weight: 800; }
+#empty-title { font-weight: 750; }
+#empty-detail { color: var(--muted); font-size: 0.9rem; }
+.task-footer { display: flex; justify-content: flex-end; padding-top: 0.55rem; }
+.task-footer button { padding-inline: 0.65rem; }
+.task-footer button:disabled { color: #60665a; border-color: #e5e8df; }
+.progress-panel { background: #232b1c; color: #f8faef; }
+.progress-value { color: var(--accent); margin-block: 0.4rem; font-size: clamp(2.65rem, 6vw, 4.25rem); font-weight: 800; line-height: 1.05; letter-spacing: -0.075em; }
+progress { appearance: none; display: block; width: 100%; height: 0.55rem; margin: 1rem 0 0.7rem; overflow: hidden; border: 0; border-radius: 1rem; background: #536249; accent-color: var(--accent); }
+progress::-webkit-progress-bar { background: #536249; }
+progress::-webkit-progress-value { background: var(--accent); border-radius: 1rem; }
+progress::-moz-progress-bar { background: var(--accent); border-radius: 1rem; }
+#progress-detail { color: #dbe4d2; font-size: 0.9rem; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+
+@media (max-width: 43rem) {
+  .shell { width: calc(100% - 2rem); }
+  .board { grid-template-columns: minmax(0, 1fr); }
+  .header-inner { min-height: 3.75rem; }
+  .progress-value { font-size: 2.75rem; }
+}
+@media (max-width: 22rem) {
+  #task-form { flex-wrap: wrap; }
+  #task-text, .add-button { width: 100%; flex-basis: 100%; min-height: 2.75rem; }
+}

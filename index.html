@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A simple to-do list that saves your tasks on this device.">
+  <meta name="theme-color" content="#f7f8ef">
+  <title>Daymark | To-do list</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <div class="brand"><span class="brand-mark" aria-hidden="true">✓</span> Daymark</div>
+      <p id="storage-note" class="storage-note" role="status">Saves on this device</p>
+    </div>
+  </header>
+  <main class="shell workspace">
+    <section class="intro" aria-labelledby="page-title">
+      <h1 id="page-title">My tasks<span>.</span></h1>
+      <p>Write down what needs doing and check it off as you go.</p>
+    </section>
+    <div class="board">
+      <section class="task-panel" aria-labelledby="task-heading">
+        <h2 id="task-heading">Task list</h2>
+        <form id="task-form" novalidate>
+          <label class="sr-only" for="task-text">New task</label>
+          <input id="task-text" name="task" placeholder="What needs doing?" autocomplete="off" maxlength="200" aria-describedby="input-error">
+          <button class="add-button" type="submit"><span aria-hidden="true">+</span> Add task</button>
+        </form>
+        <p id="input-error" class="input-error" role="status" hidden></p>
+        <div class="task-tools">
+          <div class="filters" role="group" aria-label="Filter tasks">
+            <button type="button" data-filter="all" aria-pressed="true">All</button>
+            <button type="button" data-filter="active" aria-pressed="false">Active</button>
+            <button type="button" data-filter="done" aria-pressed="false">Done</button>
+          </div>
+          <p id="remaining" class="remaining" role="status" aria-atomic="true">0 tasks left</p>
+        </div>
+        <ul id="task-list" class="task-list" aria-label="Tasks"></ul>
+        <div id="empty-state" class="empty-state">
+          <span class="empty-mark" aria-hidden="true">✓</span>
+          <p id="empty-title">No tasks yet</p>
+          <p id="empty-detail">Add your first task above.</p>
+        </div>
+        <div class="task-footer">
+          <button id="clear-completed" type="button" disabled>Clear completed</button>
+        </div>
+      </section>
+      <aside class="progress-panel" aria-labelledby="progress-title">
+        <h2 id="progress-title">Progress</h2>
+        <p class="progress-value"><span id="percentage">0%</span></p>
+        <progress id="progress-bar" value="0" max="100" aria-label="Tasks completed"></progress>
+        <p id="progress-detail">0 of 0 tasks completed</p>
+      </aside>
+    </div>
+  </main>
+</body>
+</html>
